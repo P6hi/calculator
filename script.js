@@ -75,6 +75,7 @@ buttons.forEach(button => {
         } else {
             display.textContent += e.target.textContent;
         }
+        console.log(digits);
     })
 })
 
@@ -89,12 +90,13 @@ operators.forEach(operator => {
     operator.addEventListener('click', (e) => {
         if (digits.number1 === null) {
             digits.number1 = display.textContent;
-            digits.operator = e.target.textContent;
-            display.textContent += (' ' + e.target.textContent);
-        } else if (digits.number1 !== null && digits.operator === null) {
-            digits.operator = e.target.textContent;
-            display.textContent += (' ' + e.target.textContent);
         }
+        
+        if (digits.number1 !== null && digits.number2 !== null && digits.operator !== null) {
+            operate(digits.number1, digits.operator, digits.number2);
+        }
+        digits.operator = e.target.textContent;
+        display.textContent += (' ' + e.target.textContent);
         console.log(digits);
     })
 })
