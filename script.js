@@ -104,6 +104,3 @@ equals.addEventListener('click', () => {
         operate(digits.number1, digits.operator, digits.number2);
     }
 })
-// Numbers added to display get an HTML id with their value
-// Value is used when adding to number1 and number 2
-// After operator button is pushed, if number1 has a value, the next number is added with an id of the value, and based on that value it is added to number2
