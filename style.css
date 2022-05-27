@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.calc-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(77, 77, 77);
+    height: 650px;
+    width: 500px;
+}
+
+.display-container {
+    border: 1px solid red;
+    display: flex;
+    flex: 1 1 0;
+    padding: 5px
+}
+
+.display {
+    padding: 5px;
+    border: 2px solid rgb(59, 141, 59);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1 1 0;
+    background-color: rgb(139, 179, 142);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4em;
+}
+
+.button-container {
+    border: 1px solid red;
+    flex: 4 1 0;
+}
