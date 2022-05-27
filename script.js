@@ -75,7 +75,6 @@ buttons.forEach(button => {
         } else {
             display.textContent += e.target.textContent;
         }
-        console.log(digits);
     })
 })
 
@@ -97,7 +96,6 @@ operators.forEach(operator => {
         }
         digits.operator = e.target.textContent;
         display.textContent += (' ' + e.target.textContent);
-        console.log(digits);
     })
 })
 
