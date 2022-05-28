@@ -49,6 +49,7 @@ function operate(a, o, b) {
     } else if (o === "÷") {
         division(a,b);
     }
+    digits.digitCount = 0;
 }
 
 const buttons = document.querySelectorAll(".button-number");
@@ -60,18 +61,20 @@ const digits = {
     number1: null,
     operator: null,
     number2: null,
-    isDecimal: false
+    isDecimal: false,
+    digitCount: 0
 }
 
 buttons.forEach(button => {
     button.addEventListener('click', (e) => {
-
+        if (digits.digitCount < 11) {
         if (digits.number1 !== null && digits.number2 === null) {
             if (e.target.textContent !== ".") {
             digits.number2 = '';
             display.textContent = '';
             display.textContent += e.target.textContent;
             digits.number2 += e.target.textContent;
+            digits.digitCount += 1;
             }
 
         } else if (digits.number1 !== null && digits.number2 !== null) {
@@ -80,10 +83,12 @@ buttons.forEach(button => {
                     digits.isDecimal = true;
                     digits.number2 += e.target.textContent;
                     display.textContent += e.target.textContent;
+                    digits.digitCount += 1;
                 }
             } else {
             digits.number2 += e.target.textContent;
             display.textContent += e.target.textContent;
+            digits.digitCount += 1;
             }
 
         } else {
@@ -92,15 +97,16 @@ buttons.forEach(button => {
                 if (digits.isDecimal === false) {
                     digits.isDecimal = true;
                     display.textContent += e.target.textContent;
+                    digits.digitCount += 1;
                 }
             } else {
-
             display.textContent += e.target.textContent;
+            digits.digitCount += 1;
 
             }
         }
 
-
+    }
     })
 })
 
@@ -110,6 +116,7 @@ clear.addEventListener('click', () => {
     digits.operator = null;
     digits.number2 = null;
     digits.isDecimal = false;
+    digits.digitCount = 0;
 })
 
 operators.forEach(operator => {
@@ -117,6 +124,7 @@ operators.forEach(operator => {
         if (digits.number1 === null) {
             digits.number1 = display.textContent;
             display.textContent += (' ' + e.target.textContent);
+            digits.digitCount = 0;
         }
         
         if (digits.number1 !== null && digits.number2 !== null && digits.operator !== null) {
