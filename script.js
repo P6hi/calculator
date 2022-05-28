@@ -59,23 +59,50 @@ const equals = document.querySelector('#equal');
 const digits = {
     number1: null,
     operator: null,
-    number2: null
+    number2: null,
+    isDecimal: false
 }
 
 buttons.forEach(button => {
     button.addEventListener('click', (e) => {
         console.log(digits);
+
+
         if (digits.number1 !== null && digits.number2 === null) {
+            if (e.target.textContent !== ".") {
             digits.number2 = '';
             display.textContent = '';
             display.textContent += e.target.textContent;
             digits.number2 += e.target.textContent;
+            }
+
         } else if (digits.number1 !== null && digits.number2 !== null) {
+            if (e.target.textContent === ".") {
+                if (digits.isDecimal === false) {
+                    digits.isDecimal = true;
+                    digits.number2 += e.target.textContent;
+                    display.textContent += e.target.textContent;
+                }
+            } else {
             digits.number2 += e.target.textContent;
             display.textContent += e.target.textContent;
+            }
+
         } else {
+
+            if (e.target.textContent === ".") {
+                if (digits.isDecimal === false) {
+                    digits.isDecimal = true;
+                    display.textContent += e.target.textContent;
+                }
+            } else {
+
             display.textContent += e.target.textContent;
+
+            }
         }
+
+
     })
 })
 
@@ -91,11 +118,13 @@ operators.forEach(operator => {
         console.log(digits);
         if (digits.number1 === null) {
             digits.number1 = display.textContent;
+            digits.isDecimal = false;
             display.textContent += (' ' + e.target.textContent);
         }
         
         if (digits.number1 !== null && digits.number2 !== null && digits.operator !== null) {
             operate(digits.number1, digits.operator, digits.number2);
+            digits.isDecimal = false;
             display.textContent += (' ' + e.target.textContent);
         }
         digits.operator = e.target.textContent;
