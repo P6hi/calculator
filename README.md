@@ -19,6 +19,4 @@ There is also a clear button that will change all the property values to null.
 
 Known issues:
 
-- Numbers don't wrap or shorten themselves.
-
 --------------------------------------------------------------------------------------------------
