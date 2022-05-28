@@ -67,7 +67,6 @@ buttons.forEach(button => {
     button.addEventListener('click', (e) => {
         console.log(digits);
 
-
         if (digits.number1 !== null && digits.number2 === null) {
             if (e.target.textContent !== ".") {
             digits.number2 = '';
@@ -111,6 +110,7 @@ clear.addEventListener('click', () => {
     digits.number1 = null;
     digits.operator = null;
     digits.number2 = null;
+    digits.isDecimal = false;
 })
 
 operators.forEach(operator => {
@@ -118,15 +118,14 @@ operators.forEach(operator => {
         console.log(digits);
         if (digits.number1 === null) {
             digits.number1 = display.textContent;
-            digits.isDecimal = false;
             display.textContent += (' ' + e.target.textContent);
         }
         
         if (digits.number1 !== null && digits.number2 !== null && digits.operator !== null) {
             operate(digits.number1, digits.operator, digits.number2);
-            digits.isDecimal = false;
             display.textContent += (' ' + e.target.textContent);
         }
+        digits.isDecimal = false;
         digits.operator = e.target.textContent;
     })
 })
@@ -134,5 +133,7 @@ operators.forEach(operator => {
 equals.addEventListener('click', () => {
     if (digits.number1 !== null && digits.number2 !== null && digits.operator !== null) {
         operate(digits.number1, digits.operator, digits.number2);
+        digits.isDecimal = false;
     }
+    console.log(digits);
 })
