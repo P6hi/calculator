@@ -64,6 +64,7 @@ const digits = {
 
 buttons.forEach(button => {
     button.addEventListener('click', (e) => {
+        console.log(digits);
         if (digits.number1 !== null && digits.number2 === null) {
             digits.number2 = '';
             display.textContent = '';
@@ -87,15 +88,17 @@ clear.addEventListener('click', () => {
 
 operators.forEach(operator => {
     operator.addEventListener('click', (e) => {
+        console.log(digits);
         if (digits.number1 === null) {
             digits.number1 = display.textContent;
+            display.textContent += (' ' + e.target.textContent);
         }
         
         if (digits.number1 !== null && digits.number2 !== null && digits.operator !== null) {
             operate(digits.number1, digits.operator, digits.number2);
+            display.textContent += (' ' + e.target.textContent);
         }
         digits.operator = e.target.textContent;
-        display.textContent += (' ' + e.target.textContent);
     })
 })
 
