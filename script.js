@@ -65,7 +65,6 @@ const digits = {
 
 buttons.forEach(button => {
     button.addEventListener('click', (e) => {
-        console.log(digits);
 
         if (digits.number1 !== null && digits.number2 === null) {
             if (e.target.textContent !== ".") {
@@ -115,7 +114,6 @@ clear.addEventListener('click', () => {
 
 operators.forEach(operator => {
     operator.addEventListener('click', (e) => {
-        console.log(digits);
         if (digits.number1 === null) {
             digits.number1 = display.textContent;
             display.textContent += (' ' + e.target.textContent);
@@ -135,5 +133,4 @@ equals.addEventListener('click', () => {
         operate(digits.number1, digits.operator, digits.number2);
         digits.isDecimal = false;
     }
-    console.log(digits);
 })
