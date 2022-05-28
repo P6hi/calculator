@@ -21,6 +21,4 @@ Known issues:
 
 - Numbers don't wrap or shorten themselves.
 
-- Clicking operator button multiple times adds extra symbols to display.
-
 --------------------------------------------------------------------------------------------------
