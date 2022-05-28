@@ -1,5 +1,8 @@
 function addition(a,b) {
     let result =  +a + +b;
+    if (result > 9999999999) {
+        result = result.toExponential(2);
+    }
     display.textContent = '';
     display.textContent += result;
     digits.number1 = result;
@@ -9,6 +12,9 @@ function addition(a,b) {
 
 function subtraction(a,b) {
     let result = +a - +b;
+    if (result > 9999999999) {
+        result = result.toExponential(2);
+    }
     display.textContent = '';
     display.textContent += result;
     digits.number1 = result;
@@ -18,6 +24,9 @@ function subtraction(a,b) {
 
 function multiplication(a,b) {
     let result = +a * +b;
+    if (result > 9999999999) {
+        result = result.toExponential(2);
+    }
     display.textContent = '';
     display.textContent += result;
     digits.number1 = result;
@@ -31,6 +40,9 @@ function division(a,b) {
         display.textContent += "Don't do that.";
     } else {
         let result = a / b;
+        if (result > 9999999999) {
+        result = result.toExponential(2);
+    }
         display.textContent = '';
         display.textContent += result;
         digits.number1 = result;
