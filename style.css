@@ -41,7 +41,7 @@ body {
     padding: 2em;
     flex: 3 1 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 2em;
     justify-content: center;
     align-items: center;
@@ -76,11 +76,7 @@ body {
     box-shadow: -1px -2px 1px 1px rgb(34, 34, 34);
 }
 
-#zero {
-    flex: 3 1 0;
-}
-
-#dot {
+#zero, #dot {
     flex: 1 1 0;
 }
 
@@ -102,4 +98,10 @@ body {
 
 .button-operator:hover {
     box-shadow: -1px -2px 1px 1px rgb(34, 34, 34);
+}
+
+.top-row-container, .middle-row-container, .bottom-row-container, .lower-row-container {
+    flex: 1 1 0;
+    display: flex;
+    gap: 30px;
 }
